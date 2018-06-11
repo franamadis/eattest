@@ -1,0 +1,1635 @@
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProducts (20170212030750)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "upc" varchar, "image_url" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170212030750"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2018-06-08 22:57:48 UTC], ["updated_at", 2018-06-08 22:57:48 UTC]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2018-06-09 00:58:09 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 5639ms (Views: 5623.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 01:16:26 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 569ms (Views: 551.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.34 at 2018-06-09 01:16:48 +0200
+Cannot render console from 192.168.1.34! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (5.6ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 112ms (Views: 108.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 01:17:04 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20797799"}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20797799"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=20797799
+Completed 200 OK in 20ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/products/new?upc=20797799" for 127.0.0.1 at 2018-06-09 01:17:04 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"20797799"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (100.6ms)
+  Rendered products/new.html.erb within layouts/application (104.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 214ms (Views: 209.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-09 01:17:17 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/wN6D+XFyCJK5q8kl4dJbqLxCoKE25J0JiGrB8XzRBVWPkugkDNADPMVgivOVIj6ZnHxX/Xiy/aHh2wxsxPHHg==", "product"=>{"name"=>"Naturis ", "upc"=>"20797799", "image_url"=>""}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Naturis "], ["upc", "20797799"], ["image_url", ""], ["created_at", 2018-06-08 23:17:17 UTC], ["updated_at", 2018-06-08 23:17:17 UTC]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 9ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 01:17:17 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (5.4ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 135ms (Views: 126.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 01:17:19 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 106ms (Views: 101.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 01:17:20 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (5.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 91ms (Views: 86.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 01:17:47 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20797799"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20797799"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/1
+Completed 200 OK in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 01:17:47 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 99ms (Views: 93.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 01:17:49 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 87ms (Views: 82.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 01:17:52 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 103ms (Views: 98.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 01:17:54 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 88ms (Views: 84.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2018-06-09 01:17:54 +0200
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (8.5ms)
+  Rendered products/edit.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 102ms (Views: 94.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 01:18:00 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 98ms (Views: 93.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 01:18:01 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 95ms (Views: 90.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 01:18:02 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 92ms (Views: 87.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:33:39 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+Completed 200 OK in 183ms (Views: 159.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:34:09 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8434165483965"}
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8434165483965"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=8434165483965
+Completed 200 OK in 19ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/products/new?upc=8434165483965" for 127.0.0.1 at 2018-06-09 09:34:09 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"8434165483965"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (22.0ms)
+  Rendered products/new.html.erb within layouts/application (25.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (5.4ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 122ms (Views: 118.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:34:41 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.9ms)
+  Rendered layouts/_navigation.html.erb (5.7ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 161ms (Views: 158.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:34:47 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20797799"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20797799"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/1
+Completed 200 OK in 20ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 09:34:47 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 109ms (Views: 102.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2018-06-09 09:34:54 +0200
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (8.6ms)
+  Rendered products/edit.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 81ms (Views: 78.1ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/products/1" for 127.0.0.1 at 2018-06-09 09:36:02 +0200
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"d2qaXG4l1opi3lkpDMlrtkmHcqLgsgOvTwLbbjYckqHdkTdxvfEEAQb2gw1ea1+ozhz8wRxSEVEzkXWTvnrxMA==", "product"=>{"name"=>"Naturis ", "upc"=>"20797799", "image_url"=>"https://i.ytimg.com/vi/h6eD1lQzWzs/maxresdefault.jpg"}, "commit"=>"Update Product", "id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (6.1ms)[0m  [1m[33mUPDATE "products" SET "image_url" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["image_url", "https://i.ytimg.com/vi/h6eD1lQzWzs/maxresdefault.jpg"], ["updated_at", 2018-06-09 07:36:02 UTC], ["id", 1]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 22ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 09:36:02 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation_links.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 70ms (Views: 66.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:36:08 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 78ms (Views: 75.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:36:18 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20797799"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20797799"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/1
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 09:36:18 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 64ms (Views: 61.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:36:23 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.6ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 73ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:36:32 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8434165483965"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8434165483965"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=8434165483965
+Completed 200 OK in 5ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/new?upc=8434165483965" for 127.0.0.1 at 2018-06-09 09:36:32 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"8434165483965"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (5.9ms)
+  Rendered products/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 73ms (Views: 70.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-09 09:37:28 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EjHHhSOG4k5EwJmtximwHLX2I3GD+OnLCnokzxyoiN+7DPYqVnBqYP0ztKKf+nGIcXbYrPLBsEmr3OP5akgL1A==", "product"=>{"name"=>"TostaRica Cuétara", "upc"=>"8434165483965", "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/91M6OfzVswL._SX679_.jpg"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "TostaRica Cuétara"], ["upc", "8434165483965"], ["image_url", "https://images-na.ssl-images-amazon.com/images/I/91M6OfzVswL._SX679_.jpg"], ["created_at", 2018-06-09 07:37:28 UTC], ["updated_at", 2018-06-09 07:37:28 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:37:28 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 73ms (Views: 69.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:37:31 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 66ms (Views: 62.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:37:31 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 65.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 09:37:33 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (5.9ms)
+Completed 200 OK in 72ms (Views: 69.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:37:36 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 66ms (Views: 62.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/2/edit" for 127.0.0.1 at 2018-06-09 09:37:37 +0200
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (6.1ms)
+  Rendered products/edit.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 76ms (Views: 71.4ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/products/2" for 127.0.0.1 at 2018-06-09 09:37:40 +0200
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fNBHkLz9udcaUxGARH/zzII+rClHcbyFkUVLujWy/0Z9PKkmsriEMFNnz8A5GKLNNeKj18MrEtbmSV5xzeQc0w==", "product"=>{"name"=>"TostaRica Cuétara", "upc"=>"8434165483965", "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/91M6OfzVswL._SX679_.jpg"}, "commit"=>"Update Product", "id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:37:40 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 69ms (Views: 66.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:37:58 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 76ms (Views: 72.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products/2/edit" for 127.0.0.1 at 2018-06-09 09:38:02 +0200
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (6.3ms)
+  Rendered products/edit.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 76ms (Views: 73.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/products/2" for 127.0.0.1 at 2018-06-09 09:38:05 +0200
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OKZ7AifavwF3uCUNQyJsxBkpshnxf+2HPign/RwNyZQ5SpW0KZ+C5j6M+00+RT3FrvW953UlQ9RJJDI25FsqAQ==", "product"=>{"name"=>"TostaRica Cuétara", "upc"=>"8434165483965", "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/91M6OfzVswL._SX466_.jpg"}, "commit"=>"Update Product", "id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "products" SET "image_url" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["image_url", "https://images-na.ssl-images-amazon.com/images/I/91M6OfzVswL._SX466_.jpg"], ["updated_at", 2018-06-09 07:38:05 UTC], ["id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:38:05 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 66ms (Views: 62.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:38:09 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (1.2ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 68ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:38:16 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8434165483965"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8434165483965"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/2
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:38:16 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 71ms (Views: 68.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:38:24 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 64ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddColumnsToProducts (20180609074747)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "products" ADD "nutrition" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "products" ADD "ingredients" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180609074747"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+DEPRECATION WARNING: Passing #original_exception is deprecated and has no effect. Exceptions will automatically capture the original exception. (called from require at /Users/fran/code/franamadis/eattest/bin/rails:9)
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProducts (20170212030750)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "upc" varchar, "image_url" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20170212030750"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddColumnsToProducts (20180609074747)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "products" ADD "nutrition" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "products" ADD "ingredients" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180609074747"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", 2018-06-09 07:51:18 UTC], ["updated_at", 2018-06-09 07:51:18 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:52:21 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 365ms (Views: 352.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:52:36 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8434165483965"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8434165483965"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=8434165483965
+Completed 200 OK in 13ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/products/new?upc=8434165483965" for 127.0.0.1 at 2018-06-09 09:52:37 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"8434165483965"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (98.9ms)
+  Rendered products/new.html.erb within layouts/application (101.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 169ms (Views: 166.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-09 09:55:44 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/90TDO2/obo3ICKEwhaxnfCy8vxNNkbUW0xMp2W7suhW4CKjmEkplI7TD4ubxXAJNDIJITwPH1b66ouRE1sx4w==", "product"=>{"name"=>"TostaRica", "upc"=>"8434165483965", "ingredients"=>"Harina de Trigo, Azucar, Aceite de Girasol, Jarabe de Glucosa", "nutrition"=>"Kcal: 460, Grasas: 16, Saturadas: 1.9, Monoinsaturadas: 12, Poliinsaturadas: 1.9, Hidratos de Carbono: 72 ", "image_url"=>"https://images-na.ssl-images-amazon.com/images/I/91M6OfzVswL._SX466_.jpg"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at", "nutrition", "ingredients") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "TostaRica"], ["upc", "8434165483965"], ["image_url", "https://images-na.ssl-images-amazon.com/images/I/91M6OfzVswL._SX466_.jpg"], ["created_at", 2018-06-09 07:55:44 UTC], ["updated_at", 2018-06-09 07:55:44 UTC], ["nutrition", "Kcal: 460, Grasas: 16, Saturadas: 1.9, Monoinsaturadas: 12, Poliinsaturadas: 1.9, Hidratos de Carbono: 72 "], ["ingredients", "Harina de Trigo, Azucar, Aceite de Girasol, Jarabe de Glucosa"]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 14ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 09:55:44 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 85ms (Views: 78.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:55:50 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 63ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:56:02 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"11121510"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "11121510"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=11121510
+Completed 200 OK in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/new?upc=11121510" for 127.0.0.1 at 2018-06-09 09:56:02 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"11121510"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (7.3ms)
+  Rendered products/new.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 72ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:57:00 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 57ms (Views: 54.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:57:09 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8410055151022"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8410055151022"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=8410055151022
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new?upc=8410055151022" for 127.0.0.1 at 2018-06-09 09:57:09 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"8410055151022"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (13.9ms)
+  Rendered products/new.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 78ms (Views: 75.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-09 09:57:18 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CdeoR1gFszMcRK51uFegOvKfZLaPzXuhHhl4T41PIY+g6pnoLfM7HaW3g3rhhGGuNh+fa/70IiO/v795+6+ihA==", "product"=>{"name"=>"Agua Fonter", "upc"=>"8410055151022", "ingredients"=>"", "nutrition"=>"", "image_url"=>"https://s0.dia.es/medias/ha7/hd1/9367058022430.jpg"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at", "nutrition", "ingredients") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Agua Fonter"], ["upc", "8410055151022"], ["image_url", "https://s0.dia.es/medias/ha7/hd1/9367058022430.jpg"], ["created_at", 2018-06-09 07:57:18 UTC], ["updated_at", 2018-06-09 07:57:18 UTC], ["nutrition", ""], ["ingredients", ""]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 6ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 09:57:18 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 62ms (Views: 59.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:57:25 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 09:59:21 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 63.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 09:59:47 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8434165483965"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8434165483965"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/1
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 09:59:47 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 64ms (Views: 60.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 10:00:04 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 66ms (Views: 61.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 10:00:16 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"02242552"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "02242552"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=02242552
+Completed 200 OK in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new?upc=02242552" for 127.0.0.1 at 2018-06-09 10:00:16 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"02242552"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (7.9ms)
+  Rendered products/new.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 78ms (Views: 74.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-09 10:00:37 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3wX1ii4uyDAp2VVvLNK5KJwwUgAZa/N0dTMboos4W+ECbYR5leerZ3iJPCCWkzuBOQtGWwK5CPYE3aJJPUio1g==", "product"=>{"name"=>"agua fonter con gas", "upc"=>"02242552", "ingredients"=>"", "nutrition"=>"", "image_url"=>"https://s0.dia.es/medias/ha7/hd1/9367058022430.jpg"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at", "nutrition", "ingredients") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "agua fonter con gas"], ["upc", "02242552"], ["image_url", "https://s0.dia.es/medias/ha7/hd1/9367058022430.jpg"], ["created_at", 2018-06-09 08:00:37 UTC], ["updated_at", 2018-06-09 08:00:37 UTC], ["nutrition", ""], ["ingredients", ""]]
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/3
+Completed 302 Found in 10ms (ActiveRecord: 7.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2018-06-09 10:00:37 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 61ms (Views: 57.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 10:00:40 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 62ms (Views: 59.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 10:00:48 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8410055151022"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8410055151022"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/2
+Completed 200 OK in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-06-09 10:00:48 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation_links.html.erb (5.5ms)
+  Rendered layouts/_navigation.html.erb (9.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 74ms (Views: 71.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 14:03:58 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (1.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 330ms (Views: 320.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 14:04:14 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"2110111740813"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "2110111740813"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=2110111740813
+Completed 200 OK in 14ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new?upc=2110111740813" for 127.0.0.1 at 2018-06-09 14:04:14 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"2110111740813"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (55.4ms)
+  Rendered products/new.html.erb within layouts/application (60.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 120ms (Views: 117.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-09 14:04:36 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ng8qc7x+L3qQ6PsjgkBLDaslsQKpekBueLdrOQPRlJ9DZ1uAB7dMLcG4kmw4AcmkDh6lWbKou+wJWdLStaFnqA==", "product"=>{"name"=>"Fonter Agua con Gas", "upc"=>"2110111740813", "ingredients"=>"", "nutrition"=>"", "image_url"=>"https://s0.dia.es/medias/ha7/hd1/9367058022430.jpg"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at", "nutrition", "ingredients") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Fonter Agua con Gas"], ["upc", "2110111740813"], ["image_url", "https://s0.dia.es/medias/ha7/hd1/9367058022430.jpg"], ["created_at", 2018-06-09 12:04:36 UTC], ["updated_at", 2018-06-09 12:04:36 UTC], ["nutrition", ""], ["ingredients", ""]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/4
+Completed 302 Found in 13ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at 2018-06-09 14:04:36 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 64ms (Views: 59.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 14:04:39 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 73ms (Views: 69.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/products/3" for 127.0.0.1 at 2018-06-09 14:05:03 +0200
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Ll910qSyqE05je4MvxfhUeKqEzPdUfuP1zhgHemxa1MF9GO4k5mOLmfKH7gBr+gd8nrT4ANhhlCtEhlwivxTZQ==", "id"=>"3"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 3]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 4ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 14:05:03 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 66ms (Views: 62.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/products/4" for 127.0.0.1 at 2018-06-09 14:05:07 +0200
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KXapqgQKobo70Swa3O1hvetnkiyNlm3Eau/c4wNrKZYC3b/AMyGH2WWW3a5iVWjx+7dS/1OmEBsQxaWOYCYRoA==", "id"=>"4"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 4]]
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 9ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 14:05:07 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 65ms (Views: 61.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 14:05:10 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 64ms (Views: 61.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 14:05:23 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"02821113"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "02821113"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=02821113
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new?upc=02821113" for 127.0.0.1 at 2018-06-09 14:05:23 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"02821113"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (5.7ms)
+  Rendered products/new.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 65ms (Views: 62.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 14:05:35 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 64ms (Views: 60.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 14:05:38 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.6ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 65ms (Views: 61.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 14:05:48 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"0102114110610"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "0102114110610"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=0102114110610
+Completed 200 OK in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new?upc=0102114110610" for 127.0.0.1 at 2018-06-09 14:05:48 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"0102114110610"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (8.1ms)
+  Rendered products/new.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 77ms (Views: 73.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 14:06:16 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 69ms (Views: 65.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 14:06:21 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8434165483965"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8434165483965"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/1
+Completed 200 OK in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-06-09 14:06:21 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 65ms (Views: 61.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 14:06:43 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.2ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 14:07:25 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20797799"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20797799"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=20797799
+Completed 200 OK in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new?upc=20797799" for 127.0.0.1 at 2018-06-09 14:07:25 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"20797799"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (7.2ms)
+  Rendered products/new.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 70ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-09 14:07:46 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gucP62Z+xPu2dLd3zYROrWTDT48QUZJoUQbZZf/hWxpfj34Y3benrOck3jh3xcwEwfhb1AuDaeog6GCOSZGoLQ==", "product"=>{"name"=>"Aguas de San Joaquin", "upc"=>"20797799", "ingredients"=>"", "nutrition"=>"", "image_url"=>""}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at", "nutrition", "ingredients") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Aguas de San Joaquin"], ["upc", "20797799"], ["image_url", ""], ["created_at", 2018-06-09 12:07:46 UTC], ["updated_at", 2018-06-09 12:07:46 UTC], ["nutrition", ""], ["ingredients", ""]]
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/5
+Completed 302 Found in 10ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2018-06-09 14:07:46 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 72ms (Views: 68.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-09 14:07:50 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 64ms (Views: 60.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-09 14:08:01 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 63ms (Views: 60.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-09 14:08:20 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20797799"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20797799"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/5
+Completed 200 OK in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2018-06-09 14:08:20 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 63ms (Views: 60.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 09:02:51 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 264ms (Views: 250.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 09:03:01 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20659318"}
+  [1m[36mProduct Load (5.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20659318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=20659318
+Completed 200 OK in 12ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/products/new?upc=20659318" for 127.0.0.1 at 2018-06-11 09:03:01 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"20659318"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (16.3ms)
+  Rendered products/new.html.erb within layouts/application (19.7ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 101ms (Views: 97.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-06-11 09:05:48 +0200
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GcJTb4qzeTyhbg1omp4yO0fUyH9Ofo+skSPbkQhXIVTEqiKcMXoaa/A+ZCcg37CS4u/cJFWsdC7gzWJ6vifSYw==", "product"=>{"name"=>"Bebida de Avena", "upc"=>"20659318", "ingredients"=>"Agua, Avena, Sales Cálcicas de Ácido Ortofosfórico, Vitamina D, sal y estabilizante: Goma Gellan", "nutrition"=>"", "image_url"=>"data:image/jpeg;base64,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"}, "commit"=>"Create Product"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "products" ("name", "upc", "image_url", "created_at", "updated_at", "nutrition", "ingredients") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bebida de Avena"], ["upc", "20659318"], ["image_url", "data:image/jpeg;base64,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"], ["created_at", 2018-06-11 07:05:48 UTC], ["updated_at", 2018-06-11 07:05:48 UTC], ["nutrition", ""], ["ingredients", "Agua, Avena, Sales Cálcicas de Ácido Ortofosfórico, Vitamina D, sal y estabilizante: Goma Gellan"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 14ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 09:05:48 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 59ms (Views: 55.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products/6/edit" for 127.0.0.1 at 2018-06-11 09:06:17 +0200
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (9.2ms)
+  Rendered products/edit.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 91ms (Views: 85.7ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/products/6" for 127.0.0.1 at 2018-06-11 09:06:21 +0200
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0jJpDnjjvEYLBcufska0hQ2mWQ6SHmcjFfQnuGrL9pKaZlpp0ICpEfzJv7lbT7gGvuqA1YSXdPQhuWc7rxik4g==", "product"=>{"name"=>"Bebida de Avena", "upc"=>"20659318", "ingredients"=>"Agua, Avena, Sales Cálcicas de Ácido Ortofosfórico, Vitamina D, sal y estabilizante: Goma Gellan", "nutrition"=>"", "image_url"=>"https://dondeyocompro.com/wp-content/uploads/2017/08/IMG_3002.jpg"}, "commit"=>"Update Product", "id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "products" SET "image_url" = ?, "updated_at" = ? WHERE "products"."id" = ?[0m  [["image_url", "https://dondeyocompro.com/wp-content/uploads/2017/08/IMG_3002.jpg"], ["updated_at", 2018-06-11 07:06:21 UTC], ["id", 6]]
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/6
+Completed 302 Found in 9ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 09:06:21 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.7ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 67ms (Views: 64.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-11 09:06:28 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 65ms (Views: 61.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 09:06:30 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.2ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 70ms (Views: 66.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 09:06:35 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20659318"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20659318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/6
+Completed 200 OK in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 09:06:35 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 73ms (Views: 69.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-11 09:07:07 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 70ms (Views: 67.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 09:08:47 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 69ms (Views: 64.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 09:09:01 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 71ms (Views: 68.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 09:09:02 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 71ms (Views: 67.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-11 09:09:02 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_navigation_links.html.erb (0.7ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 85ms (Views: 82.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 09:09:04 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 77ms (Views: 71.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 11:45:21 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.8ms)
+  Rendered layouts/_navigation.html.erb (4.4ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 167ms (Views: 160.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 11:45:31 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20659318"}
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20659318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/6
+Completed 200 OK in 10ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 11:45:31 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 114ms (Views: 109.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 11:45:39 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 92ms (Views: 89.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 11:45:46 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20659318"}
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20659318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/6
+Completed 200 OK in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 11:45:46 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 61ms (Views: 58.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 11:45:51 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 59ms (Views: 56.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 11:45:59 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"8410261608105"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "8410261608105"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=8410261608105
+Completed 200 OK in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new?upc=8410261608105" for 127.0.0.1 at 2018-06-11 11:45:59 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"8410261608105"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (10.1ms)
+  Rendered products/new.html.erb within layouts/application (13.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 75ms (Views: 71.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 11:46:32 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 11:46:39 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20659318"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20659318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/6
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 11:46:39 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.9ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 64ms (Views: 61.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 11:46:47 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 58ms (Views: 54.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 11:46:52 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20659318"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20659318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/6
+Completed 200 OK in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 11:46:52 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 64ms (Views: 61.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 11:57:53 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 65ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 11:57:59 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"21610318"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "21610318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/new?upc=21610318
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/new?upc=21610318" for 127.0.0.1 at 2018-06-11 11:57:59 +0200
+Processing by ProductsController#new as HTML
+  Parameters: {"upc"=>"21610318"}
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (6.2ms)
+  Rendered products/new.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 68ms (Views: 60.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-11 11:58:01 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.4ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 53ms (Views: 49.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 11:58:04 +0200
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 60ms (Views: 57.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products/get_barcode" for 127.0.0.1 at 2018-06-11 11:58:10 +0200
+Processing by ProductsController#get_barcode as */*
+  Parameters: {"upc"=>"20659318"}
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."upc" = ? LIMIT ?[0m  [["upc", "20659318"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/products/6
+Completed 200 OK in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/products/6" for 127.0.0.1 at 2018-06-11 11:58:10 +0200
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.6ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 58ms (Views: 54.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-06-11 11:58:43 +0200
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.8ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 57ms (Views: 53.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 192.168.82.25 at 2018-06-11 11:59:10 +0200
+Cannot render console from 192.168.82.25! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (5.5ms)
+  Rendered layouts/_navigation.html.erb (8.2ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 75ms (Views: 72.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-11 12:17:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_navigation_links.html.erb (0.5ms)
+  Rendered layouts/_navigation.html.erb (4.3ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 378ms (Views: 366.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.82.25 at 2018-06-11 12:17:59 +0200
+Cannot render console from 192.168.82.25! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_navigation_links.html.erb (1.0ms)
+  Rendered layouts/_navigation.html.erb (4.6ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 82ms (Views: 80.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.82.25 at 2018-06-11 12:19:25 +0200
+Cannot render console from 192.168.82.25! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.6ms)
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 71ms (Views: 68.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.82.25 at 2018-06-11 12:19:40 +0200
+Cannot render console from 192.168.82.25! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by VisitorsController#index as HTML
+  Rendering visitors/index.html.erb within layouts/application
+  Rendered visitors/index.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_navigation_links.html.erb (0.3ms)
+  Rendered layouts/_navigation.html.erb (2.5ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 52ms (Views: 49.4ms | ActiveRecord: 0.0ms)
+
+
